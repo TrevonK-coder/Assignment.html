@@ -34,3 +34,16 @@ SELECT
     tbl_nutrition.nutrition_type AS 'Nutrition Type:'
 FROM tbl_species
 INNER JOIN tbl_nutrition ON tbl_species.species_nutrition = tbl_nutrition.nutrition_id;
+/* Zoo Database Assignment 6 
+   Task: Retrieve first name, last name and contact number for the people 
+   that provide care to penguins using two INNER JOINs.
+*/
+
+SELECT 
+    specialist_fname AS 'First Name', 
+    specialist_lname AS 'Last Name', 
+    specialist_contact AS 'Contact'
+FROM tbl_specialist
+INNER JOIN tbl_care ON tbl_care.care_specialist = tbl_specialist.specialist_id
+INNER JOIN tbl_species ON tbl_species.species_care = tbl_care.care_id
+WHERE species_name = 'penguin';
