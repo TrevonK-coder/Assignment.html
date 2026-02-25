@@ -15,3 +15,12 @@ SELECT habitat_name, habitat_size FROM tbl_habitat;
 SELECT nutrition_type 
 FROM tbl_nutrition 
 WHERE nutrition_cost <= 600.00;
+/* Zoo Database Assignment 4 
+   Task: Retrieve all species_names from tbl_species that have a 
+   nutrition_id between 2202 and 2206 using an INNER JOIN with tbl_nutrition.
+*/
+
+SELECT tbl_species.species_name
+FROM tbl_species
+INNER JOIN tbl_nutrition ON tbl_species.species_nutrition = tbl_nutrition.nutrition_id
+WHERE tbl_nutrition.nutrition_id BETWEEN 2202 AND 2206;
