@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="A music video page featuring an embedded YouTube video with JavaScript canvas animation and custom CSS styling."/>
+  <title>🎵 Vibe &amp; Watch — Music Player Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Animated canvas background -->
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="page-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="logo">🎵 Vibe &amp; Watch</div>
+      <p class="tagline">Sit back, relax, and feel the music.</p>
+    </header>
+
+    <!-- Music video section -->
+    <main>
+      <section class="video-section">
+        <h1 class="section-title">Now Playing</h1>
+        <p class="song-label">
+          🎤 <strong>Kendrick Lamar</strong> — <em>Not Like Us</em>
+        </p>
+
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe
+              id="ytPlayer"
+              src="https://www.youtube.com/embed/T6eK-2OQtew?rel=0&modestbranding=1"
+              title="Kendrick Lamar – Not Like Us (Official Music Video)"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Info cards -->
+      <section class="info-cards">
+        <div class="card" id="card-artist">
+          <span class="card-icon">🎤</span>
+          <h3>Artist</h3>
+          <p>Kendrick Lamar</p>
+        </div>
+        <div class="card" id="card-genre">
+          <span class="card-icon">🎶</span>
+          <h3>Genre</h3>
+          <p>Hip-Hop / Rap</p>
+        </div>
+        <div class="card" id="card-year">
+          <span class="card-icon">📅</span>
+          <h3>Released</h3>
+          <p>2024</p>
+        </div>
+      </section>
+
+      <!-- Animation controls -->
+      <section class="controls-section">
+        <h2 class="section-title">Animation Controls</h2>
+        <p class="controls-hint">Customize the background particle animation below:</p>
+        <div class="controls">
+          <button id="btnToggle" onclick="toggleAnimation()">⏸ Pause</button>
+          <button id="btnColor" onclick="cycleColor()">🎨 Change Color</button>
+          <button id="btnSpeed" onclick="toggleSpeed()">⚡ Speed Up</button>
+          <button id="btnBurst" onclick="burst()">💥 Burst!</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built with ❤️ using HTML, CSS &amp; JavaScript &nbsp;·&nbsp; Project 3</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

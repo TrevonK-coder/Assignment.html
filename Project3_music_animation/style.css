@@ -1,0 +1,252 @@
+/* =============================================
+   style.css — Vibe & Watch Music Page
+   Project 3: HTML + CSS + JS Animation
+   ============================================= */
+
+/* ── Reset & base ──────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark:     #0d0d1a;
+  --bg-card:     rgba(255,255,255,0.05);
+  --accent:      #a855f7;
+  --accent2:     #ec4899;
+  --text-main:   #f0eeff;
+  --text-muted:  #9ca3c7;
+  --radius:      16px;
+  --shadow:      0 8px 32px rgba(0,0,0,0.5);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Animated canvas background ────────────── */
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Page wrapper ───────────────────────────── */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+/* ── Header ─────────────────────────────────── */
+.site-header {
+  text-align: center;
+  padding: 3rem 0 2rem;
+}
+
+.logo {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  font-weight: 300;
+}
+
+/* ── Section titles ─────────────────────────── */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Video section ──────────────────────────── */
+.video-section {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.song-label {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.song-label strong { color: var(--text-main); }
+.song-label em     { color: var(--accent);    }
+
+/* Glassmorphism card around the video */
+.video-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(168,85,247,0.25);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow), 0 0 60px rgba(168,85,247,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow), 0 0 80px rgba(168,85,247,0.22);
+}
+
+/* Responsive 16:9 wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ── Info cards ─────────────────────────────── */
+.info-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168,85,247,0.5);
+}
+
+.card-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.card p {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* ── Controls section ───────────────────────── */
+.controls-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.controls-hint {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.controls button {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(168,85,247,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls button::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.2s;
+}
+
+.controls button:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(168,85,247,0.55);
+}
+
+.controls button:hover::after {
+  background: rgba(255,255,255,0.08);
+}
+
+.controls button:active {
+  transform: scale(0.97);
+}
+
+/* ── Footer ─────────────────────────────────── */
+.site-footer {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 600px) {
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .logo { font-size: 1.8rem; }
+}
